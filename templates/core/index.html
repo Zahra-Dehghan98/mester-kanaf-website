@@ -159,40 +159,27 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="section services" id="services">
-    <div class="section-header reveal">
-      <div class="section-chip">خدمات ما</div>
-      <h2 class="section-title">خدمات <span class="gold">تخصصی</span> ما</h2>
-      <p class="section-sub">طراحی و اجرای انواع سقف کاذب و دکوراسیون داخلی</p>
-    </div>
-    <div class="svc-grid">
-      <div class="svc-card reveal">
-        <div class="svc-num">۰۱</div>
-        <div class="svc-icon">🏠</div>
-        <h3>سقف کاذب کناف</h3>
-        <p>طراحی و اجرای انواع سقف کاذب کناف با متریال استاندارد و طرح‌های مدرن و زیبا برای فضاهای مسکونی و تجاری.</p>
+<!-- ===== SERVICES ===== -->
+<section class="section services" id="services">
+  <div class="section-header reveal">
+    <div class="section-chip">خدمات ما</div>
+    <h2 class="section-title">خدمات <span class="gold">تخصصی</span> ما</h2>
+    <p class="section-sub">طراحی و اجرای انواع سقف کاذب و دکوراسیون داخلی</p>
+  </div>
+
+  <div class="svc-grid">
+    {% for service in services %}
+      <div class="svc-card" style="background-image: url('{{ service.image.url }}');">
+        <div class="svc-overlay">
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </div>
       </div>
-      <div class="svc-card reveal reveal-delay-1">
-        <div class="svc-num">۰۲</div>
-        <div class="svc-icon">🎨</div>
-        <h3>دکوراسیون داخلی</h3>
-        <p>طراحی و اجرای دکوراسیون داخلی مدرن و کلاسیک با ترکیب زیبایی و عملکرد برای ایجاد فضایی دلنشین.</p>
-      </div>
-      <div class="svc-card reveal">
-        <div class="svc-num">۰۴</div>
-        <div class="svc-icon">🔧</div>
-        <h3>کلیک و PVC</h3>
-        <p>نصب و اجرای کفپوش کلیک و PVC با کیفیت بالا و تنوع طرح و رنگ مناسب برای هر فضایی.</p>
-      </div>
-      <div class="svc-card reveal reveal-delay-2">
-        <div class="svc-num">۰۶</div>
-        <div class="svc-icon">✨</div>
-        <h3>بازسازی و تعمیر</h3>
-        <p>بازسازی و تعمیر سقف‌های آسیب‌دیده و بازسازی کامل فضاهای داخلی با استانداردهای روز.</p>
-      </div>
-    </div>
-  </section>
+    {% empty %}
+      <p>هیچ خدمتی ثبت نشده است.</p>
+    {% endfor %}
+  </div>
+</section>
 
   <!-- PRODUCTS فروش محصولات کناف -->
   <section class="section products" id="products">
