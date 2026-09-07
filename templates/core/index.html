@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   <!-- ===== FONT AWESOME ===== -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
@@ -79,7 +79,7 @@
       <!-- Visual -->
       <div class="hero-visual">
         <div class="hero-visual-frame">
-          <img src="images/IMG_7741.JPG" alt="اجرای سقف کناف" loading="eager" />
+          <img src="{% static 'images/IMG_7741.jpg' %}" alt="اجرای سقف کناف" loading="eager" />
         </div>
       </div>
     </div>
@@ -117,7 +117,7 @@
     <div class="about-wrap">
       <div class="about-visual reveal">
         <div class="about-img">
-          <img src="images/11zon_IMG_2194.jpg" alt="علی حسینی - متخصص کناف" />
+          <img src="{% static 'images/11zon_IMG_2194.jpg' %}" alt="علی حسینی - متخصص کناف" />
           <div class="placeholder-icon" style="display:none;">🏗️</div>
         </div>
         <div class="about-badge">
@@ -604,6 +604,6 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <script src="js/main.js"></script>
+  <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
