@@ -97,17 +97,6 @@ img { max-width: 100%; display: block; }
   border-bottom: 1px solid var(--border);
 }
 .nav-brand { display: flex; align-items: center; gap: 14px; }
-.nav-brand .brand-icon {
-  width: 44px; height: 44px; border-radius: 12px;
-  background: var(--gradient-gold);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 900; font-size: 1rem; color: #ffffff;
-}
-.nav-brand .brand-name {
-  font-size: 1.3rem; font-weight: 800;
-  background: var(--gradient-gold);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
 .nav-links { display: flex; gap: 8px; align-items: center; }
 .nav-links a {
   padding: 8px 18px; border-radius: 10px;
@@ -171,7 +160,7 @@ img { max-width: 100%; display: block; }
   height: 20px;
 }
 @keyframes particleFloat {
-  0% { transform: translateY(100vh) scale(1); opacity: 0; } /* ← scale(0) به scale(1) */
+  0% { transform: translateY(100vh) scale(1); opacity: 0; }
   10% { opacity: 0.8; }
   90% { opacity: 0.8; }
   100% { transform: translateY(-10vh) scale(1); opacity: 0; }
@@ -248,40 +237,26 @@ img { max-width: 100%; display: block; }
   transform: translateY(-3px);
 }
 
-/* Hero visual */
-.hero-visual {
+.hero-person-wrapper {
   position: relative;
-  animation: fadeUp 0.8s ease-out 0.4s both;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 20px;
+  background: transparent;
+  transition: transform 0.3s ease;
+  box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.3),
+              0 10px 20px -10px rgba(37, 99, 235, 0.15);
 }
-.hero-visual-frame {
-  position: relative; border-radius: var(--radius-xl);
-  overflow: hidden; border: 1px solid var(--border);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), var(--shadow-gold);
+.hero-person-wrapper:hover {
+  transform: scale(1.02) rotate(-2deg);
+  box-shadow: 0 40px 60px -20px rgba(0, 0, 0, 0.4),
+              0 15px 30px -10px rgba(37, 99, 235, 0.25);
 }
-.hero-visual-frame img {
-  width: 100%; display: block; aspect-ratio: 4/4; object-fit: cover;height: 60%;
-}
-
-.hero-float-badge {
-  position: absolute; bottom: -20px; left: -20px;
-  background: var(--bg); backdrop-filter: blur(20px);
-  border: 1px solid var(--border-hover);
-  border-radius: var(--radius-md); padding: 16px 22px;
-  display: flex; align-items: center; gap: 12px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-  animation: floatY 3s ease-in-out infinite;
-}
-.hero-float-badge .icon {
-  width: 44px; height: 44px; border-radius: 12px;
-  background: var(--gradient-gold);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; color: #ffffff;
-}
-.hero-float-badge .num { font-size: 1.3rem; font-weight: 900; color: var(--blue); }
-.hero-float-badge .txt { font-size: 0.75rem; color: var(--text-dim); }
-@keyframes floatY {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+.hero-person-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: transparent;
 }
 
 /* ==================== STATS ==================== */
@@ -340,11 +315,6 @@ img { max-width: 100%; display: block; }
   overflow: hidden; position: relative;
 }
 .about-img img { width: 100%; height: 100%; object-fit: cover; }
-.about-img .placeholder-icon {
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 5rem; opacity: 0.08;
-}
 .about-badge {
   position: absolute; bottom: -16px; right: -16px;
   background: var(--bg); backdrop-filter: blur(20px);
@@ -383,13 +353,11 @@ img { max-width: 100%; display: block; }
 }
 
 /* ==================== SERVICES ==================== */
-/* ==================== SERVICES ==================== */
 .services { background: var(--bg); }
 .svc-grid {
   max-width: 1100px; margin: 0 auto;
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
 }
-
 .svc-card {
   position: relative;
   background-size: cover;
@@ -418,7 +386,6 @@ img { max-width: 100%; display: block; }
 .svc-card:hover::before {
   background: rgba(0,0,0,0.05);
 }
-
 .svc-overlay {
   position: relative;
   z-index: 2;
@@ -428,24 +395,6 @@ img { max-width: 100%; display: block; }
   backdrop-filter: blur(2px);
   border-radius: 0 0 20px 20px;
 }
-.svc-icon {
-  position: absolute;
-  top: -15px;        /* بیرون از بردر */
-  right: -15px;      /* گوشه راست */
-  font-size: 2.4rem;
-  background: var(--gradient-gold);
-  padding: 14px;
-  border-radius: 50%;
-  color: #ffffff;
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
-  z-index: 5;
-  border: 3px solid #fff;
-}
-.svc-card:hover .svc-icon {
-  transform: scale(1.05) rotate(-4deg);
-  background: rgba(255,255,255,0.25);
-}
-
 .svc-card h3 {
   font-size: 1.3rem;
   font-weight: 700;
@@ -458,31 +407,25 @@ img { max-width: 100%; display: block; }
   line-height: 1.6;
   max-width: 90%;
 }
+
 /* ==================== PRODUCTS ==================== */
 .products { background: var(--bg-1); }
 .products-grid {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
 }
-
 .product-card {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
   transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  position: relative; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 .product-card:hover {
   transform: translateY(-6px); border-color: var(--border-hover);
   box-shadow: 0 20px 50px rgba(37, 99, 235, 0.08);
 }
 .product-img {
-  width: 100%; aspect-ratio: 16/9;; overflow: hidden;
+  width: 100%; aspect-ratio: 16/9; overflow: hidden;
   background: var(--bg-2);
   display: flex; align-items: center; justify-content: center; position: relative;
 }
@@ -500,7 +443,6 @@ img { max-width: 100%; display: block; }
 .product-body .desc { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 14px; line-height: 1.7; }
 .product-footer { display: flex; align-items: center; justify-content: space-between; }
 .product-price { font-size: 0.9rem; font-weight: 700; color: var(--blue); }
-.product-price small { font-size: 0.72rem; font-weight: 400; color: var(--text-dim); }
 .product-btn {
   padding: 6px 14px; border-radius: 10px;
   background: var(--blue-subtle); border: 1px solid rgba(37, 99, 235, 0.12);
@@ -524,14 +466,6 @@ img { max-width: 100%; display: block; }
   transform: scale(1.03); border-color: var(--border-hover);
   z-index: 2; box-shadow: 0 16px 50px rgba(37, 99, 235, 0.08);
 }
-.portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-.portfolio-item:hover img { transform: scale(1.08); }
-.portfolio-item .ph {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 2.5rem; opacity: 0.06; transition: all 0.4s;
-}
-.portfolio-item:hover .ph { opacity: 0.1; transform: scale(1.1); }
 .portfolio-item .ov {
   position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 70%);
@@ -580,10 +514,6 @@ img { max-width: 100%; display: block; }
   transition: all 0.4s; position: relative;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
-.test-card::before {
-  content: '\201C'; position: absolute; top: 20px; left: 24px;
-  font-size: 2.5rem; color: rgba(37, 99, 235, 0.08); line-height: 1;
-}
 .test-card:hover {
   border-color: var(--border-hover);
   box-shadow: 0 12px 40px rgba(37, 99, 235, 0.06);
@@ -606,10 +536,6 @@ img { max-width: 100%; display: block; }
   padding: 100px 6%; text-align: center;
   background: var(--bg-1); position: relative; overflow: hidden;
 }
-.ig-section::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(37, 99, 235, 0.03) 0%, transparent 60%);
-}
 .ig-content { position: relative; z-index: 1; }
 .ig-icon { font-size: 3rem; margin-bottom: 16px; }
 .ig-content h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; color: var(--text); }
@@ -628,12 +554,6 @@ img { max-width: 100%; display: block; }
   overflow: hidden; position: relative; cursor: pointer; transition: all 0.35s;
 }
 .ig-item:hover { transform: scale(1.06); border-color: var(--border-hover); }
-.ig-item img { width: 100%; height: 100%; object-fit: cover; }
-.ig-item .ph {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem; opacity: 0.06;
-}
 .ig-item .ov {
   position: absolute; inset: 0; background: rgba(37, 99, 235, 0.08);
   display: flex; align-items: center; justify-content: center;
@@ -645,10 +565,6 @@ img { max-width: 100%; display: block; }
 .cta {
   padding: 120px 6%; text-align: center;
   position: relative; overflow: hidden; background: var(--bg);
-}
-.cta::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 50%, rgba(37, 99, 235, 0.04) 0%, transparent 60%);
 }
 .cta-body { position: relative; z-index: 1; max-width: 650px; margin: 0 auto; }
 .cta-body h2 { font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 900; margin-bottom: 16px; color: var(--text); }
@@ -734,41 +650,7 @@ img { max-width: 100%; display: block; }
   border-color: var(--blue); transform: translateY(-3px);
   box-shadow: 0 8px 25px var(--blue-glow);
 }
-/* ==================== SOCIAL ICONS ==================== */
-.footer-socials a {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--gold-subtle), rgba(37, 99, 235, 0.04));
-  border: 1px solid var(--border);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: var(--text-dim);
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
 
-.footer-socials a:hover {
-  background: linear-gradient(135deg, var(--gold), #1d4ed8);
-  color: #ffffff;
-  border-color: var(--gold);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px var(--gold-glow);
-}
-
-/* آیکون واتساپ با رنگ خاص */
-.footer-socials a:hover .fa-whatsapp {
-  color: #25d366;
-}
-
-/* آیکون اینستاگرام با گرادینت */
-.footer-socials a:hover .fa-instagram {
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 /* ==================== WHATSAPP ==================== */
 .wa-float {
   position: fixed; bottom: 28px; left: 28px;
@@ -784,9 +666,7 @@ img { max-width: 100%; display: block; }
   transform: scale(1.12);
   box-shadow: 0 8px 35px rgba(37, 211, 102, 0.6);
 }
-.wa-float i {
-  font-size: 2.2rem;
-}
+.wa-float i { font-size: 2.2rem; }
 
 /* ==================== ANIMATIONS ==================== */
 @keyframes fadeUp {
