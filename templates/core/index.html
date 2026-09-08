@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load humanize %}
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
@@ -181,116 +182,49 @@
   </div>
 </section>
 
-  <!-- PRODUCTS فروش محصولات کناف -->
-  <section class="section products" id="products">
-    <div class="section-header reveal">
-      <div class="section-chip">فروش محصولات</div>
-      <h2 class="section-title">محصولات <span class="gold">کناف</span></h2>
-      <p class="section-sub">فروش انواع مصالح و تجهیزات کناف با بهترین کیفیت و قیمت مناسب</p>
-    </div>
-    <div class="products-grid">
-      <div class="product-card reveal">
+<!-- PRODUCTS فروش محصولات کناف -->
+<section class="section products" id="products">
+  <div class="section-header reveal">
+    <div class="section-chip">فروش محصولات</div>
+    <h2 class="section-title">محصولات <span class="gold">کناف</span></h2>
+    <p class="section-sub">فروش انواع مصالح و تجهیزات کناف با بهترین کیفیت و قیمت مناسب</p>
+  </div>
+  <div class="products-grid">
+    {% for product in products %}
+      <div class="product-card reveal {% if forloop.counter|divisibleby:2 %}reveal-delay-1{% endif %}">
         <div class="product-img">
-          <span class="ph">📦</span>
-          <span class="product-badge">پرفروش</span>
+          {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+          {% else %}
+            <span class="ph">📦</span>
+          {% endif %}
+          {% if product.badge %}
+            <span class="product-badge">{{ product.badge }}</span>
+          {% endif %}
         </div>
         <div class="product-body">
-          <h3>پانل گچی کناف</h3>
-          <p class="desc">پانل گچی روکش‌دار مناسب برای سقف و دیوار با ضخامت‌های مختلف</p>
+          <h3>{{ product.title }}</h3>
+          <p class="desc">{{ product.description }}</p>
           <div class="product-footer">
-            <a href="https://wa.me/989013051087" target="_blank" class="product-btn">استعلام قیمت</a>
+            <span class="product-price">
+              {% if product.price %}
+                حدود {{ product.price|floatformat:0|intcomma }} تومان
+                {% if product.unit %}
+                  / {{ product.get_unit_display }}
+                {% endif %}
+              {% else %}
+                تماس بگیرید
+              {% endif %}
+            </span>
+            <a href="https://wa.me/989013051087" target="_blank" class="product-btn">ثبت سفارش</a>
           </div>
         </div>
       </div>
-      <div class="product-card reveal reveal-delay-1">
-        <div class="product-img">
-          <span class="ph">🔩</span>
-        </div>
-        <div class="product-body">
-          <h3>پروفیل کناف</h3>
-          <p class="desc">پروفیل فولادی سازه‌ای مناسب برای زیرسازی سقف کاذب کناف</p>
-          <div class="product-footer">
-            <a href="https://wa.me/989013051087" target="_blank" class="product-btn">استعلام قیمت</a>
-          </div>
-        </div>
-      </div>
-      <div class="product-card reveal reveal-delay-2">
-        <div class="product-img">
-          <span class="ph">🔲</span>
-          <span class="product-badge">جدید</span>
-        </div>
-        <div class="product-body">
-          <h3>تایل سقفی گلستان</h3>
-          <p class="desc">تایل سقفی استاندارد ۶۰×۶۰ مناسب برای سقف‌های تایلی اداری و تجاری</p>
-          <div class="product-footer">
-            <a href="https://wa.me/989013051087" target="_blank" class="product-btn">استعلام قیمت</a>
-          </div>
-        </div>
-      </div>
-      <div class="product-card reveal reveal-delay-3">
-        <div class="product-img">
-          <span class="ph">🧴</span>
-        </div>
-        <div class="product-body">
-          <h3>نوار درزگیر و بتونه</h3>
-          <p class="desc">مصالح تکمیلی شامل نوار درزگیر، بتونه و چسب کناف</p>
-          <div class="product-footer">
-            <a href="https://wa.me/989013051087" target="_blank" class="product-btn">استعلام قیمت</a>
-          </div>
-        </div>
-      </div>
-      <div class="product-card reveal">
-        <div class="product-img">
-          <span class="ph">💡</span>
-        </div>
-        <div class="product-body">
-          <h3>نور مخفی LED</h3>
-          <p class="desc">چراغ‌های LED نور مخفی مناسب برای اجرا در سقف کاذب کناف</p>
-          <div class="product-footer">
-            <a href="https://wa.me/989013051087" target="_blank" class="product-btn">استعلام قیمت</a>
-          </div>
-        </div>
-      </div>
-      <div class="product-card reveal reveal-delay-1">
-        <div class="product-img">
-          <span class="ph">🪵</span>
-          <span class="product-badge">پرفروش</span>
-        </div>
-        <div class="product-body">
-          <h3>کفپوش کلیک</h3>
-          <p class="desc">کفپوش لمینت و کلیک با مقاومت بالا و نصب آسان بدون چسب</p>
-          <div class="product-footer">
-            <a href="https://wa.me/989013051087" target="_blank" class="product-btn">استعلام قیمت</a>
-          </div>
-        </div>
-      </div>
-      <div class="product-card reveal reveal-delay-2">
-        <div class="product-img">
-          <span class="ph">🧊</span>
-        </div>
-        <div class="product-body">
-          <h3>کفپوش PVC</h3>
-          <p class="desc">ورق کفپوش PVC ضد آب مناسب برای آشپزخانه، سرویس و محیط‌های مرطوب</p>
-          <div class="product-footer">
-            <a href="https://wa.me/989013051087" target="_blank" class="product-btn">استعلام قیمت</a>
-          </div>
-        </div>
-      </div>
-      <div class="product-card reveal reveal-delay-3">
-        <div class="product-img">
-          <span class="ph">🛡️</span>
-          <span class="product-badge">جدید</span>
-        </div>
-        <div class="product-body">
-          <h3>عایق صوتی و حرارتی</h3>
-          <p class="desc">پشم سنگ و فوم عایق مناسب برای زیر سقف کاذب جهت کاهش صدا و حرارت</p>
-          <div class="product-footer">
-            <a href="https://wa.me/989013051087" target="_blank" class="product-btn">استعلام قیمت</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    {% empty %}
+      <p style="text-align:center; grid-column: 1/-1; padding: 40px; color: var(--text-dim);">هیچ محصولی ثبت نشده است.</p>
+    {% endfor %}
+  </div>
+</section>
 
   <!-- PORTFOLIO -->
   <section class="section portfolio" id="portfolio">
