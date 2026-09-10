@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نمونه کارها | مستر کناف</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/portfolio.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-logo">مستر کناف</div>
+    <div class="loader-track"></div>
+  </div>
+
+  <!-- CURSOR GLOW -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- NAVBAR -->
+  <nav class="nav" id="nav">
+    <div class="nav-brand">
+      <div style="display: flex; flex-direction: column; align-items: center; line-height: 1;">
+        <span style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 2.2rem; letter-spacing: 2px; background: linear-gradient(135deg, #2563eb, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; direction: ltr;">
+          M<span style="font-size: 1rem; letter-spacing: 0;">ester</span>K<span style="font-size: 1rem; letter-spacing: 0;">anaf</span>
+        </span>
+      </div>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="/">خانه</a>
+      <a href="/#about">درباره ما</a>
+      <a href="/#services">خدمات</a>
+      <a href="/#products">محصولات</a>
+      <a href="/portfolio/" class="active-nav">نمونه کارها</a>
+      <a href="/#process">روند کار</a>
+      <a href="/#contact">تماس با ما</a>
+      <a href="https://wa.me/989013051087" target="_blank" class="nav-cta">مشاوره رایگان</a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ===== PORTFOLIO PAGE ===== -->
+  <section class="portfolio-page">
+    <div class="portfolio-page-header">
+      <h1><span class="gold">نمونه کارهای ما</span></h1>
+      <p>پروژه‌های موفق گروه مستر کناف در استان یزد</p>
+    </div>
+
+    <!-- فیلتر -->
+    <div class="portfolio-filters">
+      <button class="filter-btn active" data-filter="all">همه</button>
+      <button class="filter-btn" data-filter="residential">مسکونی</button>
+      <button class="filter-btn" data-filter="commercial">تجاری</button>
+    </div>
+
+    <!-- گرید پروژه‌ها -->
+    <div class="portfolio-page-grid" id="portfolioGrid">
+      {% for project in portfolios %}
+        <div class="portfolio-page-card" data-category="{{ project.category }}">
+          
+          <div class="portfolio-slider" data-slider>
+            <div class="portfolio-slider-track">
+              {% for img in project.images.all %}
+                <img src="{{ img.image.url }}" alt="{{ project.title }}">
+              {% empty %}
+                {% if project.image %}
+                  <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                {% endif %}
+              {% endfor %}
+            </div>
+            {% if project.images.count > 1 %}
+              <button class="portfolio-slider-btn prev" onclick="slidePrev(this)">‹</button>
+              <button class="portfolio-slider-btn next" onclick="slideNext(this)">›</button>
+              <div class="portfolio-slider-dots">
+                {% for img in project.images.all %}
+                  <span class="{% if forloop.first %}active{% endif %}" onclick="slideTo(this, {{ forloop.counter0 }})"></span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+          
+          <div class="portfolio-page-body">
+            <span class="portfolio-category-badge {{ project.category }}">
+              {{ project.get_category_display }}
+            </span>
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description|truncatechars:80 }}</p>
+          </div>
+        </div>
+      {% empty %}
+        <p style="text-align:center; grid-column: 1/-1; padding: 60px 20px; color: var(--text-dim);">هنوز پروژه‌ای ثبت نشده است.</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-name">مستر کناف</div>
+        <p>گروه مستر کناف با مدیریت علی حسینی، با بیش از یک دهه تجربه در اجرای کناف و سقف‌های کاذب.</p>
+      </div>
+      <div class="footer-col">
+        <h4>لینک‌های سریع</h4>
+        <ul>
+          <li><a href="/">خانه</a></li>
+          <li><a href="/#about">درباره ما</a></li>
+          <li><a href="/#services">خدمات</a></li>
+          <li><a href="/portfolio/">نمونه کارها</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>خدمات ما</h4>
+        <ul>
+          <li><a href="/#services">سقف کاذب کناف</a></li>
+          <li><a href="/#services">دکوراسیون داخلی</a></li>
+          <li><a href="/#services">بازسازی و تعمیرات</a></li>
+          <li><a href="/#products">فروش محصولات کناف</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© ۱۴۰۵ — کلیه حقوق متعلق به <strong>گروه مستر کناف</strong> می‌باشد.</span>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/mester.kanaf/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/989013051087" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+989013051087"><i class="fas fa-phone"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/989013051087" target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/portfolio.js' %}"></script>
+</body>
+</html>

@@ -11,7 +11,7 @@ class HomePageView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["services"] = Service.objects.filter(is_active = True).order_by("order")
         context["products"] = Product.objects.filter(is_active = True).order_by("order")
-        context["portfolio"] = Portfolio.objects.filter(is_active = True).order_by("-creted_at")[:6]
+        context["portfolios"] = Portfolio.objects.filter(is_active = True).order_by("-created_at")[:6]
         return context
     
 

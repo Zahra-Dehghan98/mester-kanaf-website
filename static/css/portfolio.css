@@ -1,0 +1,217 @@
+/* ==================== PORTFOLIO PAGE ==================== */
+.portfolio-page {
+  padding: 140px 6% 80px;
+  min-height: 100vh;
+  background: var(--bg-1);
+}
+
+.portfolio-page-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.portfolio-page-header h1 {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 900;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.portfolio-page-header h1 .gold {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.portfolio-page-header p {
+  color: var(--text-dim);
+  font-size: 1.05rem;
+}
+
+/* ===== فیلتر ===== */
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.filter-btn {
+  padding: 10px 28px;
+  border-radius: 100px;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  color: var(--text-dim);
+  font-family: 'Vazirmatn', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filter-btn:hover {
+  border-color: var(--border-hover);
+  color: var(--blue);
+}
+
+.filter-btn.active {
+  background: var(--gradient-gold);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 20px var(--blue-glow);
+}
+
+/* ===== گرید پروژه‌ها ===== */
+.portfolio-page-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.portfolio-page-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.portfolio-page-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-hover);
+  box-shadow: 0 20px 50px rgba(37, 99, 235, 0.1);
+}
+
+/* ===== اسلایدر ===== */
+.portfolio-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background: var(--bg-2);
+}
+
+.portfolio-slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  height: 100%;
+}
+
+.portfolio-slider-track img {
+  min-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portfolio-slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  color: var(--blue);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.portfolio-slider-btn:hover {
+  background: var(--blue);
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.portfolio-slider-btn.prev { right: 12px; }
+.portfolio-slider-btn.next { left: 12px; }
+
+.portfolio-slider-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.portfolio-slider-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.portfolio-slider-dots span.active {
+  background: #ffffff;
+  width: 20px;
+  border-radius: 4px;
+}
+
+/* ===== بدنه کارت ===== */
+.portfolio-page-body {
+  padding: 20px 22px;
+}
+
+.portfolio-category-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.portfolio-category-badge.residential {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+}
+
+.portfolio-category-badge.commercial {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--blue);
+}
+
+.portfolio-page-body h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.portfolio-page-body p {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+/* ===== لینک فعال توی ناوبری ===== */
+.nav-links a.active-nav {
+  color: var(--blue);
+  background: var(--blue-subtle);
+}
+
+/* ===== ریسپانسیو ===== */
+@media (max-width: 1024px) {
+  .portfolio-page-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .portfolio-page { padding: 120px 5% 60px; }
+  .portfolio-page-grid { grid-template-columns: 1fr; }
+  .filter-btn { padding: 8px 20px; font-size: 0.82rem; }
+}

@@ -227,60 +227,36 @@
 </section>
 
   <!-- PORTFOLIO -->
-  <section class="section portfolio" id="portfolio">
-    <div class="section-header reveal">
-      <div class="section-chip">نمونه کارها</div>
-      <h2 class="section-title">پروژه‌های <span class="gold">انجام شده</span></h2>
-      <p class="section-sub">نمونه‌هایی از پروژه‌های موفق ما</p>
-    </div>
-    <div class="portfolio-grid">
+<section class="section portfolio" id="portfolio">
+  <div class="section-header reveal">
+    <div class="section-chip">نمونه کارها</div>
+    <h2 class="section-title">پروژه‌های <span class="gold">انجام شده</span></h2>
+    <p class="section-sub">نمونه‌هایی از پروژه‌های موفق ما</p>
+  </div>
+  <div class="portfolio-grid">
+    {% for project in portfolios %}
       <div class="portfolio-item reveal">
+        {% if project.image %}
+          <img src="{{ project.image.url }}" alt="{{ project.title }}">
+        {% else %}
+          <div class="ph">🏢</div>
+        {% endif %}
         <div class="ov">
           <div class="ov-line"></div>
-          <h4>سقف کاذب پذیرایی</h4>
-          <span>طراحی و اجرای مدرن</span>
+          <h4>{{ project.title }}</h4>
+          <span>{{ project.description|truncatechars:40 }}</span>
         </div>
       </div>
-      <div class="portfolio-item reveal reveal-delay-1">
-        <div class="ov">
-          <div class="ov-line"></div>
-          <h4>سقف کناف اتاق خواب</h4>
-          <span>طرح TV باکس</span>
-        </div>
-      </div>
-      <div class="portfolio-item reveal reveal-delay-2">
-        <div class="ov">
-          <div class="ov-line"></div>
-          <h4>دکوراسیون داخلی</h4>
-          <span>طراحی مدرن و لوکس</span>
-        </div>
-      </div>
-      <div class="portfolio-item reveal">
-        <div class="ph">🏢</div>
-        <div class="ov">
-          <div class="ov-line"></div>
-          <h4>سقف اداری تایلی</h4>
-          <span>تایل ۶۰×۶۰ گلستان</span>
-        </div>
-      </div>
-      <div class="portfolio-item reveal reveal-delay-1">
-        <div class="ph">🛁</div>
-        <div class="ov">
-          <div class="ov-line"></div>
-          <h4>سقف حمام و سرویس</h4>
-          <span>ضد آب و مقاوم</span>
-        </div>
-      </div>
-      <div class="portfolio-item reveal reveal-delay-2">
-        <div class="ph">🎨</div>
-        <div class="ov">
-          <div class="ov-line"></div>
-          <h4>طراحی سقف لابی</h4>
-          <span>اجرای لوکس و شیک</span>
-        </div>
-      </div>
-    </div>
-  </section>
+    {% empty %}
+      <p style="text-align:center; grid-column: 1/-1; padding: 40px; color: var(--text-dim);">هنوز پروژه‌ای ثبت نشده است.</p>
+    {% endfor %}
+  </div>
+  
+  <!-- دکمه مشاهده همه -->
+  <div style="text-align: center; margin-top: 40px;">
+    <a href="/portfolio/" class="btn btn-gold">مشاهده همه نمونه کارها</a>
+  </div>
+</section>
 
   <!-- PROCESS -->
   <section class="section process" id="process">
