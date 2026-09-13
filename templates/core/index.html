@@ -399,11 +399,13 @@
           <div><h4>خدمات‌دهی</h4><p>استان یزد</p></div>
         </div>
       </div>
-      <form class="contact-form reveal" onsubmit="handleSubmit(event)">
-        <div class="field"><input type="text" placeholder="نام و نام خانوادگی" required /></div>
-        <div class="field"><input type="tel" placeholder="شماره تماس" required /></div>
-        <div class="field"><input type="text" placeholder="موضوع پیام" /></div>
-        <div class="field"><textarea placeholder="پیام شما..."></textarea></div>
+      <form class="contact-form reveal" id="contactForm" method="post">
+        {% csrf_token %}
+        <div class="field"><input type="text" name="name" placeholder="نام و نام خانوادگی" required /></div>
+        <div class="field"><input type="tel" name="phone" placeholder="شماره تماس" required /></div>
+        <div class="field"><input type="text" name="subject" placeholder="موضوع پیام" /></div>
+        <div class="field"><textarea name="message" placeholder="پیام شما..."></textarea></div>
+        <div id="contactErrors"></div>
         <button type="submit" class="btn btn-gold w-100">ارسال پیام</button>
       </form>
     </div>
@@ -452,6 +454,6 @@
     <img src="{% static 'images/bale.png' %}" alt="بله">
   </a>
 
-  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/main.js' %}?v=2"></script>
 </body>
 </html>

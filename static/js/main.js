@@ -96,19 +96,6 @@ const counterObs = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 counters.forEach(c => counterObs.observe(c));
 
-/* ==================== CONTACT FORM ==================== */
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('button');
-  btn.textContent = '✓ پیام شما ارسال شد';
-  btn.style.background = 'linear-gradient(135deg, #25d366, #128c7e)';
-  setTimeout(() => {
-    btn.textContent = 'ارسال پیام';
-    btn.style.background = '';
-    e.target.reset();
-  }, 3000);
-}
-
 /* ==================== SMOOTH SCROLL ==================== */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', function(e) {
@@ -167,6 +154,44 @@ if (testimonialForm) {
         testimonialForm.reset();
         setTimeout(() => {
           closeTestimonialModal();
+          errorsBox.innerHTML = '';
+        }, 3000);
+      }
+    })
+    .catch(error => console.error('Error:', error));
+  });
+}
+
+/* ==================== CONTACT FORM (AJAX) ==================== */
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const errorsBox = document.getElementById('contactErrors');
+    errorsBox.innerHTML = '';
+    
+    const formData = new FormData(contactForm);
+    
+    fetch('/contact/submit/', {
+      method: 'POST',
+      body: formData,
+      headers: { 'X-CSRFToken': formData.get('csrfmiddlewaretoken') }
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === 'error') {
+        data.errors.forEach(err => {
+          const p = document.createElement('p');
+          p.className = 'modal-error';
+          p.textContent = err;
+          errorsBox.appendChild(p);
+        });
+      } else if (data.status === 'success') {
+        errorsBox.innerHTML = '<p style="color:#16a34a;text-align:center;">✅ پیام شما با موفقیت ارسال شد.</p>';
+        window.history.replaceState(null, '', window.location.pathname);
+        contactForm.reset();
+        setTimeout(() => {
           errorsBox.innerHTML = '';
         }, 3000);
       }

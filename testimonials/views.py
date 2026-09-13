@@ -31,6 +31,4 @@ class TestimonialView(FormView):
         context = super().get_context_data(**kwargs)
         context["testimonials"] = Testimonial.objects.filter(is_approved=True).order_by("-created_at")
         return context
-        
-
-        
+    
