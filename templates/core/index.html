@@ -18,33 +18,25 @@
 </head>
 <body>
 
-  <!-- ===== LOADER ===== -->
-  <div id="loader">
-    <div class="loader-logo">مستر کناف</div>
-    <div class="loader-track"></div>
-  </div>
-
   <!-- ===== CURSOR GLOW ===== -->
   <div class="cursor-glow" id="cursorGlow"></div>
 
   <!-- ===== NAVBAR ===== -->
   <nav class="nav" id="nav">
-    <div class="nav-brand">
+    <a href="#home" class="nav-brand">
       <div class="nav-logo">
         <span class="logo-text">
           M<span class="logo-small">ester</span>K<span class="logo-small">anaf</span>
         </span>
       </div>
-    </div>
+    </a>
     <div class="nav-links" id="navLinks">
-      <a href="#home">خانه</a>
       <a href="#about">درباره ما</a>
       <a href="#services">خدمات</a>
       <a href="#products">محصولات</a>
       <a href="#portfolio">نمونه کارها</a>
       <a href="#testimonials">نظرات</a>
       <a href="#contact">تماس با ما</a>
-      <a href="https://wa.me/989013051087" target="_blank" class="nav-cta">مشاوره رایگان</a>
     </div>
     <div class="hamburger" id="hamburger">
       <span></span><span></span><span></span>
@@ -71,7 +63,7 @@
           با گروه مستر کناف زیبایی و استحکام را به پروژه های ساختمانی خود دعوت کنید.
         </p>
         <div class="hero-btns">
-          <a href="https://wa.me/989013051087" target="_blank" class="btn btn-gold">📱 مشاوره رایگان</a>
+          <a href="#contact" class="btn btn-gold">📱 مشاوره رایگان</a>
           <a href="#portfolio" class="btn btn-ghost">🖼️ نمونه کارها</a>
         </div>
       </div>
@@ -192,7 +184,7 @@
                   تماس بگیرید
                 {% endif %}
               </span>
-              <a href="https://wa.me/989013051087" target="_blank" class="product-btn">ثبت سفارش</a>
+              <a href="https://ble.ir/989131583835" target="_blank" class="product-btn">ثبت سفارش</a>
             </div>
           </div>
         </div>
@@ -337,32 +329,32 @@
   </div>
 
   <!-- ===== INSTAGRAM ===== -->
-<section class="ig-section">
-  <div class="ig-content reveal">
-    <div class="ig-icon">
-      <i class="fab fa-instagram"></i>
+  <section class="ig-section">
+    <div class="ig-content reveal">
+      <div class="ig-icon">
+        <i class="fab fa-instagram"></i>
+      </div>
+      <h3>ما را در <span class="gold">اینستاگرام</span> دنبال کنید</h3><br>
+      <div class="ig-row">
+        {% for post in instagram_posts %}
+          <a href="{{ post.link }}" target="_blank" class="ig-item">
+            {% if post.image %}
+              <img src="{{ post.image.url }}" alt="پست اینستاگرام" loading="lazy">
+            {% else %}
+              <div class="ph">📸</div>
+            {% endif %}
+            <div class="ov">❤️</div>
+          </a>
+        {% empty %}
+          <div class="ig-item"><div class="ph">📸</div><div class="ov">❤️</div></div>
+          <div class="ig-item"><div class="ph">📸</div><div class="ov">❤️</div></div>
+          <div class="ig-item"><div class="ph">📸</div><div class="ov">❤️</div></div>
+          <div class="ig-item"><div class="ph">📸</div><div class="ov">❤️</div></div>
+        {% endfor %}
+      </div>
+      <a href="https://www.instagram.com/mester.kanaf/" target="_blank" class="btn btn-gold">مشاهده پیج اینستاگرام</a>
     </div>
-    <h3>ما را در <span class="gold">اینستاگرام</span> دنبال کنید</h3><br>
-    <div class="ig-row">
-      {% for post in instagram_posts %}
-        <a href="{{ post.link }}" target="_blank" class="ig-item">
-          {% if post.image %}
-            <img src="{{ post.image.url }}" alt="پست اینستاگرام" loading="lazy">
-          {% else %}
-            <div class="ph">📸</div>
-          {% endif %}
-          <div class="ov">❤️</div>
-        </a>
-      {% empty %}
-        <div class="ig-item"><div class="ph">📸</div><div class="ov">❤️</div></div>
-        <div class="ig-item"><div class="ph">📸</div><div class="ov">❤️</div></div>
-        <div class="ig-item"><div class="ph">📸</div><div class="ov">❤️</div></div>
-        <div class="ig-item"><div class="ph">📸</div><div class="ov">❤️</div></div>
-      {% endfor %}
-    </div>
-    <a href="https://www.instagram.com/mester.kanaf/" target="_blank" class="btn btn-gold">مشاهده پیج اینستاگرام</a>
-  </div>
-</section>
+  </section>
 
   <!-- ===== CTA ===== -->
   <section class="cta">
@@ -370,8 +362,8 @@
       <h2>آماده <span class="gold">زیباسازی</span> فضای خود هستید؟</h2>
       <p>همین الان با ما تماس بگیرید و از مشاوره رایگان بهره‌مند شوید.</p>
       <div class="cta-btns">
-        <a href="https://wa.me/989013051087" target="_blank" class="btn btn-gold">📱 واتساپ</a>
-        <a href="tel:+989013051087" class="btn btn-ghost">📞 تماس تلفنی</a>
+        <a href="#contact" class="btn btn-gold">📞 تماس با ما</a>
+        <a href="#portfolio" class="btn btn-ghost">🖼️ نمونه کارها</a>
       </div>
     </div>
   </section>
@@ -385,18 +377,23 @@
     </div>
     <div class="contact-wrap">
       <div class="contact-list reveal">
-        <div class="c-item">
+        <a href="tel:+989131583835" class="c-item">
           <div class="c-icon"><i class="fas fa-phone"></i></div>
           <div><h4>تلفن تماس</h4><p>۰۹۱۳۱۵۸۳۸۳۵</p></div>
-        </div>
-        <div class="c-item">
-          <div class="c-icon"><i class="fab fa-instagram"></i></div>
-          <div><h4>اینستاگرام</h4><p>mester.kanaf@</p></div>
-        </div>
-        <div class="c-item">
+        </a>
+        <a href="https://wa.me/989131583835" target="_blank" class="c-item">
           <div class="c-icon"><i class="fab fa-whatsapp"></i></div>
           <div><h4>واتساپ</h4><p>۰۹۱۳۱۵۸۳۸۳۵</p></div>
-        </div>
+        </a>
+        <a href="https://ble.ir/989131583835" target="_blank" class="c-item">
+          <div class="c-icon">
+            <img src="{% static 'images/bale2.png' %}" alt="بله" class="bale-icon">
+          </div>
+          <div>
+            <h4>بله</h4>
+            <p>۰۹۱۳۱۵۸۳۸۳۵</p>
+          </div>
+        </a>
         <div class="c-item">
           <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
           <div><h4>خدمات‌دهی</h4><p>استان یزد</p></div>
@@ -444,15 +441,15 @@
       <span>© ۱۴۰۵ — کلیه حقوق متعلق به <strong>گروه مستر کناف</strong> می‌باشد.</span>
       <div class="footer-socials">
         <a href="https://www.instagram.com/mester.kanaf/" target="_blank" aria-label="اینستاگرام"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/989013051087" target="_blank" aria-label="واتساپ"><i class="fab fa-whatsapp"></i></a>
-        <a href="tel:+989013051087" aria-label="تماس تلفنی"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/989131583835" target="_blank" aria-label="واتساپ"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+989131583835" aria-label="تماس تلفنی"><i class="fas fa-phone"></i></a>
       </div>
     </div>
   </footer>
 
-  <!-- ===== WHATSAPP FLOAT ===== -->
-  <a href="https://wa.me/989013051087" target="_blank" class="wa-float" aria-label="واتساپ">
-    <i class="fab fa-whatsapp"></i>
+  <!-- ===== BALE FLOAT ===== -->
+  <a href="https://ble.ir/989131583835" target="_blank" class="bale-float" aria-label="بله">
+    <img src="{% static 'images/bale.png' %}" alt="بله">
   </a>
 
   <script src="{% static 'js/main.js' %}"></script>

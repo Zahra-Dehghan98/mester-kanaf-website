@@ -2,11 +2,6 @@
    MASTER KANAF - Main JavaScript
    ================================================================ */
 
-/* ==================== LOADER ==================== */
-window.addEventListener('load', () => {
-  setTimeout(() => document.getElementById('loader').classList.add('done'), 1200);
-});
-
 /* ==================== MOBILE DETECTION ==================== */
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 769;
 
