@@ -6,30 +6,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>مستر کناف | اجرای تخصصی سقف کاذب و دکوراسیون داخلی</title>
+  
+  <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <!-- CSS -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  <!-- ===== FONT AWESOME ===== -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
-  <!-- LOADER -->
+  <!-- ===== LOADER ===== -->
   <div id="loader">
     <div class="loader-logo">مستر کناف</div>
     <div class="loader-track"></div>
   </div>
 
-  <!-- CURSOR GLOW -->
+  <!-- ===== CURSOR GLOW ===== -->
   <div class="cursor-glow" id="cursorGlow"></div>
 
-  <!-- NAVBAR -->
+  <!-- ===== NAVBAR ===== -->
   <nav class="nav" id="nav">
     <div class="nav-brand">
-      <div style="display: flex; flex-direction: column; align-items: center; line-height: 1;">
-        <span style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 2.2rem; letter-spacing: 2px; background: linear-gradient(135deg, #2563eb, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; direction: ltr;">
-          M<span style="font-size: 1rem; letter-spacing: 0;">ester</span>K<span style="font-size: 1rem; letter-spacing: 0;">anaf</span>
+      <div class="nav-logo">
+        <span class="logo-text">
+          M<span class="logo-small">ester</span>K<span class="logo-small">anaf</span>
         </span>
       </div>
     </div>
@@ -39,7 +42,7 @@
       <a href="#services">خدمات</a>
       <a href="#products">محصولات</a>
       <a href="#portfolio">نمونه کارها</a>
-      <a href="#process">روند کار</a>
+      <a href="#testimonials">نظرات</a>
       <a href="#contact">تماس با ما</a>
       <a href="https://wa.me/989013051087" target="_blank" class="nav-cta">مشاوره رایگان</a>
     </div>
@@ -48,14 +51,13 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- ===== HERO ===== -->
   <section class="hero" id="home">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="particles" id="particles"></div>
 
     <div class="hero-split">
-      <!-- Text -->
       <div class="hero-text">
         <div class="hero-chip">
           <span class="pulse-dot"></span>
@@ -69,16 +71,10 @@
           با گروه مستر کناف زیبایی و استحکام را به پروژه های ساختمانی خود دعوت کنید.
         </p>
         <div class="hero-btns">
-          <a href="https://wa.me/989013051087" target="_blank" class="btn btn-gold">
-            📱 مشاوره رایگان
-          </a>
-          <a href="#portfolio" class="btn btn-ghost">
-            🖼️ نمونه کارها
-          </a>
+          <a href="https://wa.me/989013051087" target="_blank" class="btn btn-gold">📱 مشاوره رایگان</a>
+          <a href="#portfolio" class="btn btn-ghost">🖼️ نمونه کارها</a>
         </div>
       </div>
-
-      <!-- Visual -->
       <div class="hero-visual">
         <div class="hero-person-wrapper">
           <img src="{% static 'images/IMG_7741-removebg-preview.png' %}" alt="اجرای سقف کناف" loading="eager" />
@@ -87,7 +83,7 @@
     </div>
   </section>
 
-  <!-- STATS -->
+  <!-- ===== STATS ===== -->
   <div class="stats">
     <div class="stats-card">
       <div class="stat reveal">
@@ -109,7 +105,7 @@
     </div>
   </div>
 
-  <!-- ABOUT -->
+  <!-- ===== ABOUT ===== -->
   <section class="section about" id="about">
     <div class="section-header reveal">
       <div class="section-chip">درباره ما</div>
@@ -120,7 +116,6 @@
       <div class="about-visual reveal">
         <div class="about-img">
           <img src="{% static 'images/11zon_IMG_2194.jpg' %}" alt="علی حسینی - متخصص کناف" />
-          <div class="placeholder-icon" style="display:none;">🏗️</div>
         </div>
         <div class="about-badge">
           <div class="icon">🏆</div>
@@ -132,133 +127,112 @@
       </div>
       <div class="about-body reveal">
         <h3>علی حسینی — <span class="gold">متخصص کناف</span></h3>
-        <p>
-          با بیش از ۱۰ سال سابقه کار در زمینه اجرای کناف، سقف کاذب و دکوراسیون داخلی، تیم ما آماده اجرای پروژه‌های شما با بالاترین استانداردها و استفاده از بهترین متریال موجود در بازار است.
-        </p>
-        <p>
-          ما با بهره‌گیری از نیروهای متخصص و ماهر و رعایت دقیق اصول فنی، زیبایی و کیفیت را برای فضای شما به ارمغان می‌آوریم.
-        </p>
+        <p>با بیش از ۱۰ سال سابقه کار در زمینه اجرای کناف، سقف کاذب و دکوراسیون داخلی، تیم ما آماده اجرای پروژه‌های شما با بالاترین استانداردها و استفاده از بهترین متریال موجود در بازار است.</p>
+        <p>ما با بهره‌گیری از نیروهای متخصص و ماهر و رعایت دقیق اصول فنی، زیبایی و کیفیت را برای فضای شما به ارمغان می‌آوریم.</p>
         <div class="about-checks">
-          <div class="about-check">
-            <span class="icon">✓</span>
-            استفاده از متریال استاندارد
-          </div>
-          <div class="about-check">
-            <span class="icon">✓</span>
-            نیروهای ماهر و باتجربه
-          </div>
-          <div class="about-check">
-            <span class="icon">✓</span>
-            ضمانت کیفیت کار
-          </div>
-          <div class="about-check">
-            <span class="icon">✓</span>
-            قیمت مناسب و منصفانه
-          </div>
+          <div class="about-check"><span class="icon">✓</span> استفاده از متریال استاندارد</div>
+          <div class="about-check"><span class="icon">✓</span> نیروهای ماهر و باتجربه</div>
+          <div class="about-check"><span class="icon">✓</span> ضمانت کیفیت کار</div>
+          <div class="about-check"><span class="icon">✓</span> قیمت مناسب و منصفانه</div>
         </div>
       </div>
     </div>
   </section>
 
-<!-- ===== SERVICES ===== -->
-<section class="section services" id="services">
-  <div class="section-header reveal">
-    <div class="section-chip">خدمات ما</div>
-    <h2 class="section-title">خدمات <span class="gold">تخصصی</span> ما</h2>
-    <p class="section-sub">طراحی و اجرای انواع سقف کاذب و دکوراسیون داخلی</p>
-  </div>
-
-  <div class="svc-grid">
-    {% for service in services %}
-      <div class="svc-card" style="background-image: url('{{ service.image.url }}');">
-        <div class="svc-overlay">
-          <h3>{{ service.title }}</h3>
-          <p>{{ service.description }}</p>
-        </div>
-      </div>
-    {% empty %}
-      <p>هیچ خدمتی ثبت نشده است.</p>
-    {% endfor %}
-  </div>
-</section>
-
-<!-- PRODUCTS فروش محصولات کناف -->
-<section class="section products" id="products">
-  <div class="section-header reveal">
-    <div class="section-chip">فروش محصولات</div>
-    <h2 class="section-title">محصولات <span class="gold">کناف</span></h2>
-    <p class="section-sub">فروش انواع مصالح و تجهیزات کناف با بهترین کیفیت و قیمت مناسب</p>
-  </div>
-  <div class="products-grid">
-    {% for product in products %}
-      <div class="product-card reveal {% if forloop.counter|divisibleby:2 %}reveal-delay-1{% endif %}">
-        <div class="product-img">
-          {% if product.image %}
-            <img src="{{ product.image.url }}" alt="{{ product.title }}">
-          {% else %}
-            <span class="ph">📦</span>
-          {% endif %}
-          {% if product.badge %}
-            <span class="product-badge">{{ product.badge }}</span>
-          {% endif %}
-        </div>
-        <div class="product-body">
-          <h3>{{ product.title }}</h3>
-          <p class="desc">{{ product.description }}</p>
-          <div class="product-footer">
-            <span class="product-price">
-              {% if product.price %}
-                حدود {{ product.price|floatformat:0|intcomma }} تومان
-                {% if product.unit %}
-                  / {{ product.get_unit_display }}
-                {% endif %}
-              {% else %}
-                تماس بگیرید
-              {% endif %}
-            </span>
-            <a href="https://wa.me/989013051087" target="_blank" class="product-btn">ثبت سفارش</a>
+  <!-- ===== SERVICES ===== -->
+  <section class="section services" id="services">
+    <div class="section-header reveal">
+      <div class="section-chip">خدمات ما</div>
+      <h2 class="section-title">خدمات <span class="gold">تخصصی</span> ما</h2>
+      <p class="section-sub">طراحی و اجرای انواع سقف کاذب و دکوراسیون داخلی</p>
+    </div>
+    <div class="svc-grid">
+      {% for service in services %}
+        <div class="svc-card" style="background-image: url('{{ service.image.url }}');">
+          <div class="svc-overlay">
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
           </div>
         </div>
-      </div>
-    {% empty %}
-      <p style="text-align:center; grid-column: 1/-1; padding: 40px; color: var(--text-dim);">هیچ محصولی ثبت نشده است.</p>
-    {% endfor %}
-  </div>
-</section>
+      {% empty %}
+        <p>هیچ خدمتی ثبت نشده است.</p>
+      {% endfor %}
+    </div>
+  </section>
 
-  <!-- PORTFOLIO -->
-<section class="section portfolio" id="portfolio">
-  <div class="section-header reveal">
-    <div class="section-chip">نمونه کارها</div>
-    <h2 class="section-title">پروژه‌های <span class="gold">انجام شده</span></h2>
-    <p class="section-sub">نمونه‌هایی از پروژه‌های موفق ما</p>
-  </div>
-  <div class="portfolio-grid">
-    {% for project in portfolios %}
-      <div class="portfolio-item reveal">
-        {% if project.image %}
-          <img src="{{ project.image.url }}" alt="{{ project.title }}">
-        {% else %}
-          <div class="ph">🏢</div>
-        {% endif %}
-        <div class="ov">
-          <div class="ov-line"></div>
-          <h4>{{ project.title }}</h4>
-          <span>{{ project.description|truncatechars:40 }}</span>
+  <!-- ===== PRODUCTS ===== -->
+  <section class="section products" id="products">
+    <div class="section-header reveal">
+      <div class="section-chip">فروش محصولات</div>
+      <h2 class="section-title">محصولات <span class="gold">کناف</span></h2>
+      <p class="section-sub">فروش انواع مصالح و تجهیزات کناف با بهترین کیفیت و قیمت مناسب</p>
+    </div>
+    <div class="products-grid">
+      {% for product in products %}
+        <div class="product-card reveal {% if forloop.counter|divisibleby:2 %}reveal-delay-1{% endif %}">
+          <div class="product-img">
+            {% if product.image %}
+              <img src="{{ product.image.url }}" alt="{{ product.title }}">
+            {% else %}
+              <span class="ph">📦</span>
+            {% endif %}
+            {% if product.badge %}
+              <span class="product-badge">{{ product.badge }}</span>
+            {% endif %}
+          </div>
+          <div class="product-body">
+            <h3>{{ product.title }}</h3>
+            <p class="desc">{{ product.description }}</p>
+            <div class="product-footer">
+              <span class="product-price">
+                {% if product.price %}
+                  حدود {{ product.price|floatformat:0|intcomma }} تومان
+                  {% if product.unit %}/ {{ product.get_unit_display }}{% endif %}
+                {% else %}
+                  تماس بگیرید
+                {% endif %}
+              </span>
+              <a href="https://wa.me/989013051087" target="_blank" class="product-btn">ثبت سفارش</a>
+            </div>
+          </div>
         </div>
-      </div>
-    {% empty %}
-      <p style="text-align:center; grid-column: 1/-1; padding: 40px; color: var(--text-dim);">هنوز پروژه‌ای ثبت نشده است.</p>
-    {% endfor %}
-  </div>
-  
-  <!-- دکمه مشاهده همه -->
-  <div style="text-align: center; margin-top: 40px;">
-    <a href="/portfolio/" class="btn btn-gold">مشاهده همه نمونه کارها</a>
-  </div>
-</section>
+      {% empty %}
+        <p class="empty-msg">هیچ محصولی ثبت نشده است.</p>
+      {% endfor %}
+    </div>
+  </section>
 
-  <!-- PROCESS -->
+  <!-- ===== PORTFOLIO ===== -->
+  <section class="section portfolio" id="portfolio">
+    <div class="section-header reveal">
+      <div class="section-chip">نمونه کارها</div>
+      <h2 class="section-title">پروژه‌های <span class="gold">انجام شده</span></h2>
+      <p class="section-sub">نمونه‌هایی از پروژه‌های موفق ما</p>
+    </div>
+    <div class="portfolio-grid">
+      {% for project in portfolios %}
+        <div class="portfolio-item reveal">
+          {% if project.image %}
+            <img src="{{ project.image.url }}" alt="{{ project.title }}">
+          {% else %}
+            <div class="ph">🏢</div>
+          {% endif %}
+          <div class="ov">
+            <div class="ov-line"></div>
+            <h4>{{ project.title }}</h4>
+            <span>{{ project.description|truncatechars:40 }}</span>
+          </div>
+        </div>
+      {% empty %}
+        <p class="empty-msg">هنوز پروژه‌ای ثبت نشده است.</p>
+      {% endfor %}
+    </div>
+    <div class="portfolio-more">
+      <a href="/portfolio/" class="btn btn-gold">مشاهده همه نمونه کارها</a>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS ===== -->
   <section class="section process" id="process">
     <div class="section-header reveal">
       <div class="section-chip">روند کار</div>
@@ -298,39 +272,54 @@
     </div>
   </section>
 
-<!-- ===== SECTION: نظرات مشتریان ===== -->
-<section class="section testimonials" id="testimonials">
-  <div class="section-header reveal">
-    <div class="section-chip">نظرات مشتریان</div>
-    <h2 class="section-title">مشتریان ما <span class="gold">چه می‌گویند</span></h2>
-    <p class="section-sub">اگر تجربه همکاری با گروه مستر کناف را داشته‌اید، ما را از نظرات خود بهره‌مند سازید.</p>
-  </div>
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="section testimonials" id="testimonials">
+    <div class="section-header reveal">
+      <div class="section-chip">نظرات مشتریان</div>
+      <h2 class="section-title">مشتریان ما <span class="gold">چه می‌گویند</span></h2>
+      <p class="section-sub">اگر تجربه همکاری با گروه مستر کناف را داشته‌اید، ما را از نظرات خود بهره‌مند سازید.</p>
+    </div>
 
-  <!-- ===== لیست نظرات (خالی - JS پر میکنه) ===== -->
-  <div class="test-grid" id="testimonialsList">
-    <!-- نظرات توسط جاوااسکریپت از دیتابیس میاد -->
-  </div>
+    <div class="test-grid" id="testimonialsList">
+      {% for testimonial in testimonials %}
+        <div class="test-card">
+          <div class="test-author">
+            <div class="test-avatar"><i class="fas fa-user"></i></div>
+            <div>
+              <div class="test-name">{{ testimonial.name }}</div>
+              <div class="test-role">{{ testimonial.created_at|date:"Y/m/d" }}</div>
+            </div>
+          </div>
+          <div class="test-stars">
+            {% for i in "12345"|make_list %}
+              {% if forloop.counter <= testimonial.rating %}★{% else %}☆{% endif %}
+            {% endfor %}
+          </div>
+          <p>{{ testimonial.message }}</p>
+        </div>
+      {% empty %}
+        <p class="empty-msg">هنوز نظری ثبت نشده است. اولین نفری باشید که نظر می‌دهید!</p>
+      {% endfor %}
+    </div>
 
-  <!-- ===== دکمه نمایش فرم نظر ===== -->
-  <div style="text-align: center; margin-top: 50px;">
-    <button class="btn btn-gold" onclick="toggleTestimonialForm()">
-      ✍️ ثبت نظر جدید
-    </button>
-  </div>
+    <div class="testimonial-btn-wrap">
+      <button class="btn btn-gold" onclick="openTestimonialModal()">✍️ ثبت نظر جدید</button>
+    </div>
+  </section>
 
-  <!-- ===== فرم ارسال نظر ===== -->
-  <div id="testimonialForm" style="display: none; max-width: 600px; margin: 40px auto 0;">
-    <div class="stats-card" style="padding: 30px;">
-      <h3 style="text-align: center; margin-bottom: 20px; color: var(--gold);">ثبت نظر</h3>
-      <form onsubmit="submitTestimonial(event)">
+  <!-- ===== TESTIMONIAL MODAL ===== -->
+  <div id="testimonialModal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeTestimonialModal()">✕</button>
+      <h3>ثبت نظر</h3>
+
+      <form id="testimonialForm">
+        {% csrf_token %}
         <div class="field">
-          <input type="text" placeholder="نام و نام خانوادگی" id="testName" required />
+          <input type="text" name="name" placeholder="نام و نام خانوادگی" required maxlength="50" />
         </div>
         <div class="field">
-          <input type="text" placeholder="سمت / شغل" id="testRole" />
-        </div>
-        <div class="field">
-          <select id="testRating" style="width:100%; padding:15px 20px; background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text); font-family:'Vazirmatn',sans-serif; font-size:0.92rem; outline:none;">
+          <select name="rating" required>
             <option value="5">★★★★★ (عالی)</option>
             <option value="4">★★★★ (خوب)</option>
             <option value="3">★★★ (متوسط)</option>
@@ -339,47 +328,32 @@
           </select>
         </div>
         <div class="field">
-          <textarea placeholder="نظر شما..." id="testMessage" required style="min-height:100px;"></textarea>
+          <textarea name="message" placeholder="نظر شما..." required maxlength="500"></textarea>
         </div>
-        <button type="submit" class="btn btn-gold" style="width:100%; justify-content:center;">
-          ارسال نظر
-        </button>
+        <div id="testimonialErrors"></div>
+        <button type="submit" class="btn btn-gold w-100">ارسال نظر</button>
       </form>
-      <p id="formFeedback" style="text-align:center; margin-top:15px; color:#4ade80; display:none;">✅ نظر شما با موفقیت ثبت شد.</p>
     </div>
   </div>
-</section>
 
-  <!-- INSTAGRAM -->
+  <!-- ===== INSTAGRAM ===== -->
   <section class="ig-section">
     <div class="ig-content reveal">
       <div class="ig-icon">
-        <i class="fab fa-instagram" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
-         -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 3rem;"></i>
+        <i class="fab fa-instagram"></i>
       </div>
       <h3>ما را در <span class="gold">اینستاگرام</span> دنبال کنید</h3><br>
       <div class="ig-row">
-        <div class="ig-item">
-          <div class="ov">❤️</div>
-        </div>
-        <div class="ig-item">
-          <div class="ov">❤️</div>
-        </div>
-        <div class="ig-item">
-          <div class="ov">❤️</div>
-        </div>
-        <div class="ig-item">
-          <div class="ph">🎨</div>
-          <div class="ov">❤️</div>
-        </div>
+        <div class="ig-item"><div class="ov">❤️</div></div>
+        <div class="ig-item"><div class="ov">❤️</div></div>
+        <div class="ig-item"><div class="ov">❤️</div></div>
+        <div class="ig-item"><div class="ov">❤️</div></div>
       </div>
-      <a href="https://www.instagram.com/mester.kanaf/" target="_blank" class="btn btn-gold">
-         مشاهده پیج اینستاگرام
-      </a>
+      <a href="https://www.instagram.com/mester.kanaf/" target="_blank" class="btn btn-gold">مشاهده پیج اینستاگرام</a>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- ===== CTA ===== -->
   <section class="cta">
     <div class="cta-body reveal">
       <h2>آماده <span class="gold">زیباسازی</span> فضای خود هستید؟</h2>
@@ -391,73 +365,48 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- ===== CONTACT ===== -->
   <section class="section contact" id="contact">
     <div class="section-header reveal">
       <div class="section-chip">تماس با ما</div>
-      <h2 class="section-title"> با ما در<span class="gold"> تماس</span> باشید</h2>
+      <h2 class="section-title">با ما در <span class="gold">تماس</span> باشید</h2>
       <p class="section-sub">آماده پاسخگویی به شما هستیم</p>
     </div>
-<div class="contact-wrap">
-  <div class="contact-list reveal">
-    <div class="c-item">
-      <div class="c-icon"><i class="fas fa-phone"></i></div>
-      <div>
-        <h4>تلفن تماس</h4>
-        <p>۰۹۱۳۱۵۸۳۸۳۵</p>
+    <div class="contact-wrap">
+      <div class="contact-list reveal">
+        <div class="c-item">
+          <div class="c-icon"><i class="fas fa-phone"></i></div>
+          <div><h4>تلفن تماس</h4><p>۰۹۱۳۱۵۸۳۸۳۵</p></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><i class="fab fa-instagram"></i></div>
+          <div><h4>اینستاگرام</h4><p>mester.kanaf@</p></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><i class="fab fa-whatsapp"></i></div>
+          <div><h4>واتساپ</h4><p>۰۹۱۳۱۵۸۳۸۳۵</p></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><h4>خدمات‌دهی</h4><p>استان یزد</p></div>
+        </div>
       </div>
-    </div>
-    <div class="c-item">
-      <div class="c-icon"><i class="fab fa-instagram"></i></div>
-      <div>
-        <h4>اینستاگرام</h4>
-        <p>mester.kanaf@</p>
-      </div>
-    </div>
-    <div class="c-item">
-      <div class="c-icon"><i class="fab fa-whatsapp"></i></div>
-      <div>
-        <h4>واتساپ</h4>
-        <p>۰۹۱۳۱۵۸۳۸۳۵</p>
-      </div>
-    </div>
-    <div class="c-item">
-      <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
-      <div>
-        <h4>خدمات‌دهی</h4>
-        <p>استان یزد</p>
-      </div>
-    </div>
-  </div>
       <form class="contact-form reveal" onsubmit="handleSubmit(event)">
-        <div class="field">
-          <input type="text" placeholder="نام و نام خانوادگی" required />
-        </div>
-        <div class="field">
-          <input type="tel" placeholder="شماره تماس" required />
-        </div>
-        <div class="field">
-          <input type="text" placeholder="موضوع پیام" />
-        </div>
-        <div class="field">
-          <textarea placeholder="پیام شما..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-gold" style="width: 100%; justify-content: center;">
-          ارسال پیام
-        </button>
+        <div class="field"><input type="text" placeholder="نام و نام خانوادگی" required /></div>
+        <div class="field"><input type="tel" placeholder="شماره تماس" required /></div>
+        <div class="field"><input type="text" placeholder="موضوع پیام" /></div>
+        <div class="field"><textarea placeholder="پیام شما..."></textarea></div>
+        <button type="submit" class="btn btn-gold w-100">ارسال پیام</button>
       </form>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-brand-name">مستر کناف</div>
-        <p>
-  گروه   <strong>مستر کناف</strong> با مدیریت <strong>  علی حسینی</strong>، 
-  با بیش از یک دهه تجربه در اجرای کناف و سقف‌های کاذب، آماده ارائه خدمات به شما مشتریان عزیز می باشد.
-        </p>
+        <p>گروه مستر کناف با مدیریت علی حسینی، با بیش از یک دهه تجربه در اجرای کناف و سقف‌های کاذب، آماده ارائه خدمات به شما مشتریان عزیز می باشد.</p>
       </div>
       <div class="footer-col">
         <h4>لینک‌های سریع</h4>
@@ -477,27 +426,20 @@
           <li><a href="#services">بازسازی و تعمیرات</a></li>
           <li><a href="#services">کلیک و PVC</a></li>
           <li><a href="#products">فروش محصولات کناف</a></li>
-          
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© ۱۴۰۵ — کلیه حقوق متعلق به <strong>گروه مستر کناف</strong> می‌باشد.</span>
       <div class="footer-socials">
-        <a href="https://www.instagram.com/mester.kanaf/" target="_blank" aria-label="اینستاگرام">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://wa.me/989013051087" target="_blank" aria-label="واتساپ">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="tel:+989013051087" aria-label="تماس تلفنی">
-          <i class="fas fa-phone"></i>
-        </a>
-</div>
+        <a href="https://www.instagram.com/mester.kanaf/" target="_blank" aria-label="اینستاگرام"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/989013051087" target="_blank" aria-label="واتساپ"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+989013051087" aria-label="تماس تلفنی"><i class="fas fa-phone"></i></a>
+      </div>
     </div>
   </footer>
 
-  <!-- WHATSAPP FLOATING BUTTON -->
+  <!-- ===== WHATSAPP FLOAT ===== -->
   <a href="https://wa.me/989013051087" target="_blank" class="wa-float" aria-label="واتساپ">
     <i class="fab fa-whatsapp"></i>
   </a>

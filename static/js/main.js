@@ -1,12 +1,16 @@
-// ===== LOADER =====
+/* ================================================================
+   MASTER KANAF - Main JavaScript
+   ================================================================ */
+
+/* ==================== LOADER ==================== */
 window.addEventListener('load', () => {
   setTimeout(() => document.getElementById('loader').classList.add('done'), 1200);
 });
 
-// ===== MOBILE DETECTION =====
+/* ==================== MOBILE DETECTION ==================== */
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 769;
 
-// ===== CURSOR GLOW (desktop only) =====
+/* ==================== CURSOR GLOW (desktop only) ==================== */
 if (!isMobile) {
   const glow = document.getElementById('cursorGlow');
   if (glow) {
@@ -17,19 +21,21 @@ if (!isMobile) {
   }
 }
 
-// ===== NAVBAR SOLID ON SCROLL =====
+/* ==================== NAVBAR SOLID ON SCROLL ==================== */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('solid', window.scrollY > 60);
 });
 
-// ===== HAMBURGER MENU =====
+/* ==================== HAMBURGER MENU ==================== */
 const burger = document.getElementById('hamburger');
 const nLinks = document.getElementById('navLinks');
+
 burger.addEventListener('click', () => {
   burger.classList.toggle('open');
   nLinks.classList.toggle('open');
 });
+
 nLinks.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => {
     burger.classList.remove('open');
@@ -37,13 +43,16 @@ nLinks.querySelectorAll('a').forEach(a => {
   });
 });
 
-// ===== SCROLL REVEAL =====
+/* ==================== SCROLL REVEAL ==================== */
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// ===== PARTICLES (desktop only, reduced count) =====
+/* ==================== PARTICLES (desktop only) ==================== */
 if (!isMobile) {
   const pc = document.getElementById('particles');
   if (pc) {
@@ -63,7 +72,7 @@ if (!isMobile) {
   }
 }
 
-// ===== ANIMATED COUNTERS =====
+/* ==================== ANIMATED COUNTERS ==================== */
 const counters = document.querySelectorAll('[data-target]');
 const counterObs = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -80,11 +89,10 @@ const counterObs = new IntersectionObserver(entries => {
           current = target;
           clearInterval(timer);
         }
-        // اگر عدد هدف بزرگتر از ۱۰۰۰ باشه، به صورت K نشون بده
         if (target >= 1000) {
-            el.textContent = Math.floor(current / 1000) + 'K+';
+          el.textContent = Math.floor(current / 1000) + 'K+';
         } else {
-            el.textContent = Math.floor(current) + '+';
+          el.textContent = Math.floor(current) + '+';
         }
       }, 40);
       counterObs.unobserve(el);
@@ -93,11 +101,11 @@ const counterObs = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 counters.forEach(c => counterObs.observe(c));
 
-// ===== CONTACT FORM =====
+/* ==================== CONTACT FORM ==================== */
 function handleSubmit(e) {
   e.preventDefault();
   const btn = e.target.querySelector('button');
-  btn.textContent = '\u2713 پیام شما ارسال شد';
+  btn.textContent = '✓ پیام شما ارسال شد';
   btn.style.background = 'linear-gradient(135deg, #25d366, #128c7e)';
   setTimeout(() => {
     btn.textContent = 'ارسال پیام';
@@ -106,7 +114,7 @@ function handleSubmit(e) {
   }, 3000);
 }
 
-// ===== SMOOTH SCROLL =====
+/* ==================== SMOOTH SCROLL ==================== */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', function(e) {
     e.preventDefault();
@@ -115,3 +123,59 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
+/* ==================== TESTIMONIAL MODAL ==================== */
+function openTestimonialModal() {
+  document.getElementById('testimonialModal').classList.add('open');
+}
+
+function closeTestimonialModal() {
+  document.getElementById('testimonialModal').classList.remove('open');
+}
+
+// Close on background click
+document.getElementById('testimonialModal')?.addEventListener('click', function(e) {
+  if (e.target === this) closeTestimonialModal();
+});
+
+// Close on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeTestimonialModal();
+});
+
+/* ==================== TESTIMONIAL FORM (AJAX) ==================== */
+const testimonialForm = document.getElementById('testimonialForm');
+if (testimonialForm) {
+  testimonialForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const errorsBox = document.getElementById('testimonialErrors');
+    errorsBox.innerHTML = '';
+    
+    const formData = new FormData(testimonialForm);
+    
+    fetch('/testimonials/testimonial/submit/', {
+      method: 'POST',
+      body: formData,
+      headers: { 'X-CSRFToken': formData.get('csrfmiddlewaretoken') }
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === 'error') {
+        data.errors.forEach(err => {
+          const p = document.createElement('p');
+          p.className = 'modal-error';
+          p.textContent = err;
+          errorsBox.appendChild(p);
+        });
+      } else if (data.status === 'success') {
+        errorsBox.innerHTML = '<p style="color:#16a34a;text-align:center;">✅ نظر شما با موفقیت ثبت شد و پس از تأیید نمایش داده می‌شود.</p>';
+        testimonialForm.reset();
+        setTimeout(() => {
+          closeTestimonialModal();
+          errorsBox.innerHTML = '';
+        }, 3000);
+      }
+    })
+    .catch(error => console.error('Error:', error));
+  });
+}
