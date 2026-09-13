@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'products',
     'portfolio',
     'testimonials',
+    'instagram',
 ]
 
 MIDDLEWARE = [

@@ -337,21 +337,32 @@
   </div>
 
   <!-- ===== INSTAGRAM ===== -->
-  <section class="ig-section">
-    <div class="ig-content reveal">
-      <div class="ig-icon">
-        <i class="fab fa-instagram"></i>
-      </div>
-      <h3>ما را در <span class="gold">اینستاگرام</span> دنبال کنید</h3><br>
-      <div class="ig-row">
-        <div class="ig-item"><div class="ov">❤️</div></div>
-        <div class="ig-item"><div class="ov">❤️</div></div>
-        <div class="ig-item"><div class="ov">❤️</div></div>
-        <div class="ig-item"><div class="ov">❤️</div></div>
-      </div>
-      <a href="https://www.instagram.com/mester.kanaf/" target="_blank" class="btn btn-gold">مشاهده پیج اینستاگرام</a>
+<section class="ig-section">
+  <div class="ig-content reveal">
+    <div class="ig-icon">
+      <i class="fab fa-instagram"></i>
     </div>
-  </section>
+    <h3>ما را در <span class="gold">اینستاگرام</span> دنبال کنید</h3><br>
+    <div class="ig-row">
+      {% for post in instagram_posts %}
+        <a href="{{ post.link }}" target="_blank" class="ig-item">
+          {% if post.image %}
+            <img src="{{ post.image.url }}" alt="پست اینستاگرام" loading="lazy">
+          {% else %}
+            <div class="ph">📸</div>
+          {% endif %}
+          <div class="ov">❤️</div>
+        </a>
+      {% empty %}
+        <div class="ig-item"><div class="ph">📸</div><div class="ov">❤️</div></div>
+        <div class="ig-item"><div class="ph">📸</div><div class="ov">❤️</div></div>
+        <div class="ig-item"><div class="ph">📸</div><div class="ov">❤️</div></div>
+        <div class="ig-item"><div class="ph">📸</div><div class="ov">❤️</div></div>
+      {% endfor %}
+    </div>
+    <a href="https://www.instagram.com/mester.kanaf/" target="_blank" class="btn btn-gold">مشاهده پیج اینستاگرام</a>
+  </div>
+</section>
 
   <!-- ===== CTA ===== -->
   <section class="cta">

@@ -601,7 +601,7 @@ img { max-width: 100%; display: block; }
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
 }
 .ig-item {
-  aspect-ratio: 1; border-radius: var(--radius-sm);
+  aspect-ratio: 9/16; border-radius: var(--radius-sm);
   background: var(--bg-2); border: 1px solid var(--border);
   overflow: hidden; position: relative; cursor: pointer; transition: all 0.35s;
 }
@@ -612,7 +612,11 @@ img { max-width: 100%; display: block; }
   opacity: 0; transition: opacity 0.3s; font-size: 1.4rem;
 }
 .ig-item:hover .ov { opacity: 1; }
-
+.ig-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 /* ==================== CTA ==================== */
 .cta {
   padding: 120px 6%; text-align: center;

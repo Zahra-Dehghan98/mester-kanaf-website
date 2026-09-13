@@ -4,6 +4,7 @@ from services.models import Service
 from products.models import Product
 from portfolio.models import Portfolio
 from testimonials.models import Testimonial
+from instagram.models import Instagram
 
 class HomePageView(TemplateView):
     template_name = "core/index.html"
@@ -14,4 +15,5 @@ class HomePageView(TemplateView):
         context["products"] = Product.objects.filter(is_active = True).order_by("order")
         context["portfolios"] = Portfolio.objects.filter(is_active = True).order_by("-created_at")[:6]
         context["testimonials"] = Testimonial.objects.filter(is_approved = True).order_by("-created_at")
+        context["instagram_posts"] = Instagram.objects.filter(is_active = True).order_by("order")
         return context
