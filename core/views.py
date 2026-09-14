@@ -1,11 +1,13 @@
-from django.shortcuts import render
 from django.views.generic import TemplateView
 from services.models import Service
 from products.models import Product
 from portfolio.models import Portfolio
 from testimonials.models import Testimonial
 from instagram.models import Instagram
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 
+@method_decorator(cache_page(60 * 60 * 24 * 365), name="dispatch")
 class HomePageView(TemplateView):
     template_name = "core/index.html"
 
